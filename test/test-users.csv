@@ -1,0 +1,10 @@
+Program,Name,Role,Horizon Email Address,Lan ID,First Name,Last Name,HealthSphere User Level,SIT,UAT,TRAIN,PROD,HS User Name,HS Password,SF Profile Name,Profile ID in SIT,Profile ID in UAT,Profile ID in Training,SF Role Name,Role ID in SIT,Role ID in UAT,Role ID in Training
+HRM,,"Mgr, RN/SW",,WWHITE,Walter,White,HS - Clinical,Y,Y,Y,Y,,,RN Case Manager,00e0U000000InY3,not ready,not ready,HRM Supervisor,00E0U000000P4hX,not ready,not ready
+HRM,,"SUPV, RN/SW",,TSOPRANO,Tony,Soprano,HS - Clinical,Y,Y,Y,Y,,,RN Case Manager,00e0U000000InY3,not ready,not ready,HRM Case Manager,00E0U000000P4hW,not ready,not ready
+HRM,,"HRM RN, Supervisor",,HSIMPSON,Homer,Simpson,HS - Clinical,Y,Y,,,,,RN Case Manager,00e0U000000InY3,not ready,not ready,HRM Case Manager,00E0U000000P4hW,not ready,not ready
+HRM,,"HRM RN, Manager",,SCOOPER,Sheldon,Cooper,HS - Clinical,,,Y,Y,,,RN Case Manager,00e0U000000InY3,not ready,not ready,HRM Case Manager,00E0U000000P4hW,not ready,not ready
+HRM,,MCC II,,SGRIFFI,Stewie,Griffin,HS - Clinical,Y,Y,Y,Y,,,MCC Care Coordinator,00e0U000000InXz,not ready,not ready,HRM Case Manager,00E0U000000P4hW,not ready,not ready
+HRM,,MCC,,PGRIFFIN,Peter,Griffin,HS - Clinical,Y,Y,,Y,,,MCC Care Coordinator,00e0U000000InXz,not ready,not ready,HRM Case Manager,00E0U000000P4hW,not ready,not ready
+HRM,,"Mgr, Health Svcs Training",,OLITTLE,Omar,Little,HS - Clinical,Y,,Y,,,,RN Case Manager,00e0U000000InY3,not ready,not ready,HRM Case Manager,00E0U000000P4hW,not ready,not ready
+HRM,,HRM RN II,,DDRAPER,Don,Draper,HS - Clinical,Y,Y,Y,Y,,,RN Case Manager,00e0U000000InY3,not ready,not ready,HRM Case Manager,00E0U000000P4hW,not ready,not ready
+Integration,,,,,,,,,,,,hzn.healthcloudintegration.lvl7a,,,,,,,,,

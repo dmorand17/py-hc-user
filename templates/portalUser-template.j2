@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<concerto version="portal-serialization/2.0">
+{% set environment = "SIT" %}
+{# environments -> SIT, UAT, PROD#}
+{% for user in rows -%}
+{% if user[environment] == "Y" %}
+<user>
+	<name>{{user['HS User Name']}}</name>
+	<accepted-login-disclaimer-code>2df02f96-a61b-4c04-9487-c8d0ce406124</accepted-login-disclaimer-code>
+	<accepted-login-disclaimer-date>{{utcnow}}</accepted-login-disclaimer-date>
+	<account-status>
+		<account-creation-date>{{utcnow}}</account-creation-date>
+		<enabled>true</enabled>
+		<last-login-time>{{utcnow}}</last-login-time>
+	</account-status>
+	<deleted>0</deleted>
+	<external-identifier>
+		<external-identifier-type>
+			<name>ConcertoAccount</name>
+			<display-name />
+		</external-identifier-type>
+		<identifier>D70C50F-E125-4790-9DEA-673FC2B97485</identifier>
+	</external-identifier>
+	<group-membership>
+		<name>Users</name>
+		<description />
+	</group-membership>
+	<password-status>
+		<bad-login-count>0</bad-login-count>
+		<bad-login-count-reset-time>{{utcnow}}</bad-login-count-reset-time>
+		<last-password-change-time>{{utcnow}}</last-password-change-time>
+		<password>
+			<index>0</index>
+			<hashed-password>cNC4DyUDUjsQi3cwtjI0+cQXuoc</hashed-password>
+			<nonce>3183D07E5AF90576</nonce>
+		</password>
+		<password>
+			<index>1</index>
+			<hashed-password>NFDGJfsinDqvWALl5m9FMNXdH84</hashed-password>
+			<nonce>C4536882AFFB5E67</nonce>
+		</password>
+		<password-change-forced>false</password-change-forced>
+		<password-policy>
+			<name>Default Policy</name>
+			<description />
+		</password-policy>
+		<password-reset>false</password-reset>
+		<using-nt-password>false</using-nt-password>
+	</password-status>
+	<preference>
+		<name>lastLocation</name>
+		<value>38.140.12.242</value>
+	</preference>
+	<preference>
+		<name>locale</name>
+		<value>en</value>
+	</preference>
+	<role-membership>
+		<name>{{user['HealthSphere User Level'] | map_role}}</name>
+	</role-membership>
+	<type>normal</type>
+	<user-attribute>
+		<name>Description</name>
+		<group>
+			<name>Users</name>
+			<description />
+		</group>
+		<protected>false</protected>
+	</user-attribute>
+	<user-attribute>
+		<name>DirectEmail</name>
+		<group>
+			<name>Notifications</name>
+			<description />
+		</group>
+		<protected>false</protected>
+	</user-attribute>
+	<user-attribute>
+		<name>E-mail</name>
+		<group>
+			<name>Users</name>
+			<description />
+		</group>
+		<protected>false</protected>
+	</user-attribute>
+	<user-attribute>
+		<name>EMR</name>
+		<group>
+			<name>Notifications</name>
+			<description />
+		</group>
+		<protected>false</protected>
+	</user-attribute>
+	<user-attribute>
+		<name>Full Name</name>
+		<group>
+			<name>Users</name>
+			<description />
+		</group>
+		<protected>false</protected>
+		<value>{{user.Name}}</value>
+	</user-attribute>
+	<user-attribute>
+		<name>Full Name-given</name>
+		<group>
+			<name>Users</name>
+			<description />
+		</group>
+		<protected>false</protected>
+		<value>{{user['First Name']}}</value>
+	</user-attribute>
+	<user-attribute>
+		<name>Full Name-surname</name>
+		<group>
+			<name>Users</name>
+			<description />
+		</group>
+		<protected>false</protected>
+		<value></value>
+	</user-attribute>
+	<user-attribute>
+		<name>Full Name.Family Name</name>
+		<group>
+			<name>Users</name>
+			<description />
+		</group>
+		<protected>false</protected>
+		<value>{{user['Last Name']}}</value>
+	</user-attribute>
+	<user-attribute>
+		<name>Full Name.Given Name(s)</name>
+		<group>
+			<name>Users</name>
+			<description />
+		</group>
+		<protected>false</protected>
+		<value>{{user['First Name']}}</value>
+	</user-attribute>
+	<user-attribute>
+		<name>Homepage Worklist</name>
+		<group>
+			<name>Provider Homepage</name>
+			<description />
+		</group>
+		<protected>false</protected>
+	</user-attribute>
+	<user-attribute>
+		<name>Homepage WorklistText</name>
+		<group>
+			<name>Provider Homepage</name>
+			<description />
+		</group>
+		<protected>false</protected>
+	</user-attribute>
+	<user-attribute>
+		<name>My preferred patient organization</name>
+		<group>
+			<name>Patient Search and Demographics</name>
+			<description />
+		</group>
+		<protected>false</protected>
+	</user-attribute>
+	<user-attribute>
+		<name>NPI</name>
+		<group>
+			<name>Provider Identifiers</name>
+			<description />
+		</group>
+		<protected>false</protected>
+	</user-attribute>
+	<user-attribute>
+		<name>Organization</name>
+		<group>
+			<name>Users</name>
+			<description />
+		</group>
+		<protected>false</protected>
+		<value>HZN</value>
+	</user-attribute>
+	<user-identity>
+		<date-created>{{utcnow}}</date-created>
+		<user-identity>{{user['HS User Name']}}</user-identity>
+	</user-identity>
+</user>
+{% endif %}
+{% endfor %}
+</concerto>

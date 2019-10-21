@@ -1,0 +1,63 @@
+{% set environment = "SIT" %}
+{# environments -> SIT, UAT, PROD#}
+{% for user in rows -%}
+{% if user[environment] == "Y" %}
+<soapenv:Envelope xmlns:soapenv="http://www.w3.org/2003/05/soap-envelope" xmlns:com="http://www.orionhealth.com/com.orchestral.portal.webservice.api_7_2.user/">
+    <soapenv:Header>
+  	<Security xmlns="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd">
+      <UsernameToken>
+        <Username>amadeus-username-password-auth-username</Username>
+        <Password>amadeus-username-password-auth-password</Password>
+      </UsernameToken>
+    </Security>
+   </soapenv:Header>
+   <soapenv:Body>
+      <com:createUser>
+         <com:user>
+            <com:userId>{{user['HS User Name']}}</com:userId>
+            <com:firstName>{{user['First Name']}}</com:firstName>
+            <com:lastName>{{user['Last Name']}}</com:lastName>
+            <com:externalIdentifiers>
+               <com:identifier>
+                  <com:type>HealthCloud</com:type>
+                  <com:value>{{user['Lan ID']}}</com:value>
+               </com:identifier>
+            </com:externalIdentifiers>
+            <com:roleMemberships>
+               <com:role>{{user['HealthSphere User Level'] | map_role}}</com:role>
+            </com:roleMemberships>
+            <com:groupMemberships>
+               <com:group>Clinicians</com:group>
+            </com:groupMemberships>
+            <com:userAttributes>
+               <com:attribute>
+                  <com:group>Organization</com:group>
+                  <com:name>Organization</com:name>
+                  <com:value>HZN</com:value>
+                  <com:displayValue>Horizon</com:displayValue>
+               </com:attribute>
+            </com:userAttributes>
+         </com:user>
+      </com:createUser>
+   </soapenv:Body>
+</soapenv:Envelope>
+
+<soapenv:Envelope xmlns:soapenv="http://www.w3.org/2003/05/soap-envelope" xmlns:com="http://www.orionhealth.com/com.orchestral.portal.webservice.api_7_2.user/">
+    <soapenv:Header>
+  	<Security xmlns="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd">
+      <UsernameToken>
+        <Username>amadeus-username-password-auth-username</Username>
+        <Password>amadeus-username-password-auth-password</Password>
+      </UsernameToken>
+    </Security>
+   </soapenv:Header>
+   <soapenv:Body>
+      <com:changePassword>
+         <userId>{{user['HS User Name']}}</userId>
+         <password>{{user['HS Password']}}</password>
+      </com:changePassword>
+   </soapenv:Body>
+</soapenv:Envelope>
+{% endif %}
+{% endfor %}
+</concerto>
